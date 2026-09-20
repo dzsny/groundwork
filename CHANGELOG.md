@@ -14,8 +14,10 @@ First public release.
   `spec-gap-check`, `user-story`, `design-package`, `design-reconstruct`, `adr`, `sprint-plan`,
   `sprint-ticket`, `ticket-implementation`, `code-review`, `go-live-gates`, `release-cut`,
   `drift-audit`.
-- **7 commands**: `/groundwork:init`, `status`, `gap-check`, `adr`, `gate`, `review`,
-  `drift-audit`.
+- **4 commands** — `status`, `gap-check`, `gate`, `review` — as short aliases for the skills
+  whose names are longer. Skills are invokable as slash commands in their own right, so
+  `/groundwork:init`, `/groundwork:adr` and `/groundwork:drift-audit` work without a command
+  file; adding one would only collide with the skill's name.
 - **3 hooks**: session context injection, a once-per-session docs-in-same-PR reminder, and a
   Conventional Commits linter with `off` / `warn` / `enforce` policies.
 - **`doc-auditor` agent** — a read-only parallel worker for drift audits and reconstruction
