@@ -1,0 +1,29 @@
+{
+  "name": "groundwork",
+  "description": "Groundwork \u2014 a project-agnostic documentation workflow for software projects.",
+  "owner": {
+    "name": "Gyuresz Dezsenyi",
+    "url": "https://github.com/dzsny"
+  },
+  "version": "0.1.0",
+  "plugins": [
+    {
+      "name": "groundwork",
+      "displayName": "Groundwork",
+      "description": "Create and maintain complete baseline documentation for any software project: spec gap-checks, an in-repo design package with ADRs, a machine-readable sprint plan, a go-live gate register, a review gauntlet and drift audits.",
+      "source": ".",
+      "version": "0.1.0",
+      "license": "MIT",
+      "keywords": [
+        "documentation",
+        "architecture",
+        "adr",
+        "design-docs",
+        "sdlc",
+        "workflow"
+      ],
+      "homepage": "https://github.com/dzsny/groundwork",
+      "repository": "https://github.com/dzsny/groundwork"
+    }
+  ]
+}
