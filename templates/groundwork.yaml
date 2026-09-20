@@ -1,0 +1,61 @@
+# Groundwork configuration. One file at the repository root.
+# Full field reference: docs/configuration.md in the plugin.
+#
+# Written by the `init` skill; edit it freely afterwards. Every skill and hook reads it, and it
+# is the only place this plugin learns anything project-specific.
+
+version: 1
+
+# Detected documentation maturity, 1-4. See docs/patch-up.md.
+#   1  review discipline only          3  verification tickets exist
+#   2  design package + spec baseline  4  go-live gate register with dated verdicts
+# Set by detection, not by ambition. The target layer belongs in the entry assessment below.
+layer: 1
+
+project:
+  name: ""
+  kind: service            # service | web-app | mobile-app | library | cli | data-pipeline
+  ai_surfaces: false       # true enables the EVAL track and model-quality gates
+  in_production: false     # true enables retroactive go-live gates and the hotfix flow
+  owner: ""                # the named design owner; required reviewer on the design directory
+
+paths:
+  design: design/
+  sprint: SPRINT.md
+  spec: ""                 # a path, or a URL when the spec lives in another system
+  code: []                 # directories treated as product code; empty = detect
+  exclude: []              # directories the docs-in-same-PR hook ignores
+
+# Instantiate only the tracks this project needs. Full menu:
+#   CORE DATA PLAT INF TEST LIVE DRILL EVAL GL OP SEC
+tracks: [CORE, PLAT, TEST, GL, OP]
+
+tracker:
+  kind: none               # none | github | jira | linear | gitlab | azure-devops | other
+  project_key: ""
+  url_template: ""         # {id} is replaced with the ticket id
+
+git:
+  integration_branch: develop
+  release_branch: main
+  branch_pattern: "feature/{ticket}-{slug}"
+
+policy:
+  # off | warn | enforce. Start at warn. Escalating is the team's decision, made after they
+  # have seen the warnings — not a day-one default.
+  conventional_commits: warn
+  docs_in_same_pr: warn
+  diff_coverage_min: 80
+  pr_soft_line_cap: 500
+  commit_types: [feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert]
+
+# Entry assessment (docs/patch-up.md). A recorded decision, not a detection.
+#   traffic:      live in production | internal only | frozen
+#   activity:     actively developed | occasional fixes | untouched
+#   target_layer: the layer this project's RISK justifies — a frozen internal tool may
+#                 legitimately stay at 1 forever, as a recorded decision rather than neglect
+assessment:
+  traffic: ""
+  activity: ""
+  target_layer: 1
+  reviewed: ""             # YYYY-MM-DD

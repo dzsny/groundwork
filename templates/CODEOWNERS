@@ -1,0 +1,21 @@
+# Groundwork — mechanical enforcement of the canon-change rule.
+#
+# The design package is canon. Every change to it is approved by the named design owner. This
+# is not a courtesy review: it is the only thing standing between "the design describes the
+# system" and "the design describes what someone once intended".
+#
+# Replace @design-owner with the actual handle or team.
+
+design/            @design-owner
+SPRINT.md          @design-owner
+
+# The gate register is the go-live decision record. A gate closed without a dated observation
+# is rejected in review, and this line is what guarantees someone reads it.
+design/go-live-readiness.md   @design-owner
+
+# ADRs are immutable once accepted. A diff that edits an existing ADR's body — rather than
+# adding a new one and flipping a status line — is the thing this entry exists to catch.
+design/adr/        @design-owner
+
+# The workflow's own configuration.
+.groundwork.yaml   @design-owner
