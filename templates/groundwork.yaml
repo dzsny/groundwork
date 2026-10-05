@@ -22,7 +22,9 @@ project:
 paths:
   design: design/
   sprint: SPRINT.md
+  brd: ""                  # the BRD: a path, or a URL when it lives elsewhere. Input only.
   spec: ""                 # a path, or a URL when the spec lives in another system
+  mvp: ""                  # the MVP definition written by mvp-scope (default requirements/mvp.md)
   code: []                 # directories treated as product code; empty = detect
   exclude: []              # directories the docs-in-same-PR hook ignores
 

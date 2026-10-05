@@ -27,7 +27,7 @@ Gather evidence. Do not ask the user anything you can determine yourself.
 | Commit convention | Sample the last 50 subjects: do they match `type(scope): …`? | Layer 1 |
 | Tests + CI | test directories, CI workflow files, coverage config | Layer 1 |
 | Design package | `design/` and which of the standard pages exist | Layer 2 |
-| Spec | `.groundwork.yaml` `paths.spec`, or any spec/requirements directory | Layer 2 |
+| Spec | `.groundwork.yaml` `paths.spec`, or any spec/requirements directory — also note `paths.brd` and an `mvp.md` if present | Layer 2 |
 | Sprint plan | `SPRINT.md` and whether it carries the `groundwork:sprint-table` marker | Layer 2/3 |
 | Gate register | `design/go-live-readiness.md` and whether any gate carries a dated verdict | Layer 4 |
 | Production | deploy workflows, release tags, environment configs | Layer 4 |
@@ -121,7 +121,8 @@ Close with three things:
 2. **What was installed**, by path.
 3. **The next single step.** One. Not a backlog. The next step is almost always the cheapest
    rung of the ladder that is not yet occupied — usually `design-reconstruct` for an existing
-   project or `spec-gap-check` for a new one.
+   project, `start` for a new one (it finds the BRD or spec stage the project is actually at), or
+   `spec-gap-check` when a spec already exists.
 
 If the repository is not a git repository, or you cannot read it, say so and stop. Do not
 initialize one.

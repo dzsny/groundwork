@@ -8,7 +8,9 @@ allowed-tools: Read, Glob, Grep, Write, Bash
 
 **Trigger:** requirements arrive and someone wants to start designing.
 **Input:** the business requirements (BRD) and the functional spec (FS), in whatever form they
-exist — a document, a wiki export, a folder of markdown, a ticket description.
+exist — a document, a wiki export, a folder of markdown, a ticket description. A spec written
+by `functional-spec` is `spec.md` plus a `stories/` directory; read both, and use the spec's
+traceability table as a claim to verify, not as the answer.
 **Output:** a gap report that doubles as the agenda for the requirements meeting, plus a binary
 **ready / not-ready-for-design** verdict.
 
@@ -47,6 +49,15 @@ Two directions, both matter:
   not delete it.
 
 Produce a coverage table: BRD requirement id → the story ids that cover it → verdict.
+
+Honor priorities when the BRD has them: an uncovered **MVP** requirement is blocking; an
+uncovered **Later** requirement is expected and is not a gap; a **Won't** requirement with a
+story is unanchored scope. A value written as `UNKNOWN — Q-nn` is a *tracked* gap, not a
+hidden one — it still blocks when the section is blocking, and the finding names the question
+and its owner.
+
+When the BRD or spec is missing entirely, say so and point at `brd` / `functional-spec`; do not
+review a document that does not exist.
 
 ## 3. Per-story quality
 

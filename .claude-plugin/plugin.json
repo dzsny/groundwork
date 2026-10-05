@@ -1,8 +1,8 @@
 {
   "name": "groundwork",
   "displayName": "Groundwork",
-  "version": "0.1.0",
-  "description": "A project-agnostic workflow for creating and maintaining complete baseline documentation for software projects: functional spec gap-checks, an in-repo design package with ADRs, a machine-readable sprint plan, a go-live gate register, review gauntlet and drift audits. Works on greenfield projects and retrofits onto existing, undocumented codebases.",
+  "version": "0.2.0",
+  "description": "A project-agnostic workflow that takes a software project from idea to MVP plan and keeps its documentation honest: BRD and functional-spec authoring, MVP scoping, functional spec gap-checks, an in-repo design package with ADRs, a machine-readable sprint plan, a go-live gate register, review gauntlet and drift audits. Works on greenfield projects and retrofits onto existing, undocumented codebases.",
   "author": {
     "name": "Gyuresz Dezsenyi"
   },
@@ -19,6 +19,10 @@
     "workflow",
     "go-live",
     "drift-audit",
-    "technical-writing"
+    "technical-writing",
+    "requirements",
+    "brd",
+    "prd",
+    "mvp"
   ]
 }

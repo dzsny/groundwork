@@ -9,7 +9,9 @@ Report this repository's documentation status. Read-only — change nothing.
 2. For each design page, report: **present and current · present but stale · missing · not
    applicable**. "Stale" needs evidence — a claim that no longer matches the code, or an
    `as-built, unverified` banner still in place.
-3. Report the spec reference, `SPRINT.md` health (does the table parse? do all tickets meet the
+3. Report the requirements chain — BRD (`paths.brd`), spec (`paths.spec`), `mvp.md` — each as
+   **present · missing · external (not readable from here)**. If any is missing, say that `start`
+   is the skill that closes it. Then report the spec reference, `SPRINT.md` health (does the table parse? do all tickets meet the
    Definition of Ready?), and the gate register (how many gates, how many open, how many
    closed on a dated observation vs. closed without one).
 4. Name any obvious drift you noticed in passing — but do not run a full drift audit; say that

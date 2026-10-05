@@ -35,6 +35,8 @@ fi
 LAYER="$(gw_config 'layer' '')"
 SPRINT="$(gw_config 'paths.sprint' 'SPRINT.md')"
 SPEC="$(gw_config 'paths.spec' '')"
+BRD="$(gw_config 'paths.brd' '')"
+MVP="$(gw_config 'paths.mvp' 'requirements/mvp.md')"
 CC_POLICY="$(gw_config 'conventional_commits' 'warn')"
 DOCS_POLICY="$(gw_config 'docs_in_same_pr' 'warn')"
 
@@ -71,6 +73,8 @@ fi
 
 [ -f "$ROOT/$SPRINT" ] && MSG="$MSG Sprint plan: $SPRINT (canon for design intent; the tracker is canon for live status)."
 [ -n "$SPEC" ] && MSG="$MSG Spec: $SPEC."
+[ -n "$BRD" ] && MSG="$MSG BRD: $BRD."
+case "$MVP" in http*) ;; *) [ -f "$ROOT/$MVP" ] && MSG="$MSG MVP scope: $MVP (stories not listed there are deferred and get no tickets)." ;; esac
 
 MSG="$MSG Policies — conventional_commits: $CC_POLICY, docs_in_same_pr: $DOCS_POLICY."
 MSG="$MSG Standing rule: a design page that describes changed behavior is updated in the same change as the code, never as a follow-up."

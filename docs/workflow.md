@@ -63,6 +63,41 @@ whatever system your team already uses, configured once in `.groundwork.yaml`.
 The spec typically arrives incomplete. Completing it is Phase 0's job. Design starts only on a
 gap-free spec.
 
+Requirement ids are stable and are what everything else points at: `BR-nnn` in the BRD,
+`US-nnn` (with `AC-nn`) for stories, `NFR-nn` for non-functional targets. A story names the
+`BR-nnn` it delivers; the spec carries the BRD ↔ story traceability table.
+
+---
+
+## Phase −1 — Idea to spec
+
+Everything before Phase 0 assumes a BRD and spec *arrive*. Often they do not: there is an idea,
+or a BRD written somewhere else that nobody turned into a spec. Leaving that gap open is what
+makes every later stage unfillable — the design has no NFR numbers to derive from, the drills
+have no thresholds, the tickets have no acceptance criteria. So the plugin ships the front half
+too:
+
+| Stage | Output | Skill |
+| --- | --- | --- |
+| Interview | A decision ledger: decided items, open questions with owners, what is out of scope | `interview` |
+| BRD | `requirements/brd.md` — objectives with numbers, `BR-nnn` requirements with priorities, named approver | `brd` (author from an idea, or import one made elsewhere) |
+| Spec | `requirements/spec.md` + one file per story — the full story set, NFRs with numbers, traceability | `functional-spec` |
+| Gap-check | A ready / not-ready-for-design verdict | `spec-gap-check` (Phase 0) |
+| MVP cut | `requirements/mvp.md` — the bet, exit criteria, stories in and out, walking skeleton | `mvp-scope` |
+
+`start` detects which stage a project is at and runs the next one.
+
+**The unknowns policy.** An unknown is never filled in. It becomes an open question with an
+owner, a due date and the stage it blocks, and the pipeline carries it forward. A figure
+invented here becomes a drill threshold, then a go-live gate, and nobody learns it was
+fiction. An assistant's recommended answer is a *proposal*; it is recorded as decided only when
+a named person confirms it, with the date.
+
+**Who approves what.** The requestor owns the BRD; engineering drafts and never approves it.
+When one person is both, they approve it as a distinct, dated act.
+
+*Skills:* `start`, `interview`, `brd`, `functional-spec`, `mvp-scope`.
+
 ---
 
 ## Phase 0 — Intake and freeze
@@ -80,7 +115,8 @@ gap-free spec.
 
 The design owner arbitrates; the ruling is written on the ticket.
 
-*Skill:* `spec-gap-check`.
+*Skills:* `spec-gap-check`; `functional-spec` in **Complete** mode turns the gap report into
+the work list for closing it.
 
 ---
 
@@ -101,9 +137,11 @@ in the same PR as the behavior it describes. Standard pages:
 | `security.md` | Authentication, authorization, data handling |
 | `go-live-readiness.md` | The gate register |
 
-There is deliberately **no in-repo functional spec**: the spec owns requirements. Design pages
-and tickets reference user-story ids; UI designs and legal confirmations stay in the spec,
-linked, never copied.
+There is deliberately **no functional spec inside `design/`**: the spec owns requirements.
+Where the spec lives is `paths.spec` — a URL when an external system owns it, or a path in the
+repository (`requirements/`, written by `functional-spec`) when none does. One home either way;
+never both. Design pages and tickets reference user-story ids; UI designs and legal
+confirmations stay in the spec, linked, never copied.
 
 Common org-required artifacts map to exactly one home each — no standalone duplicates:
 
@@ -491,3 +529,5 @@ bug; not implied → CR. *An audit that produces reports instead of tickets has 
 - Incident management beyond the hotfix flow — on-call rotation, comms, postmortems.
 - Multi-repo / shared-library versioning and cross-project dependency management.
 - Retrofitting an existing design-less project — see [patch-up.md](patch-up.md).
+- Product discovery beyond requirements — market sizing, user research, pricing. The BRD records
+  their *conclusions* as objectives and constraints; it does not run them.

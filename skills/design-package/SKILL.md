@@ -31,8 +31,9 @@ Org-required artifacts map to **one home each**. If an organization asks for a "
 diagram" and a "network-flow diagram" as separate deliverables, they are still sections of
 `architecture.md` and `infrastructure.md` — produce an export, never a second editable copy.
 
-**There is deliberately no in-repo functional spec.** Requirements live in the spec. Design
-pages reference story ids; UI designs and legal confirmations are linked, never copied.
+**There is deliberately no functional spec inside `design/`.** Requirements live in the spec —
+at `paths.spec`, which may be a path in the repository (`requirements/`, written by
+`functional-spec`) or an external URL. Design pages reference story ids; UI designs and legal confirmations are linked, never copied.
 
 ## Rules that make the package worth maintaining
 
