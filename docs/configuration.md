@@ -27,8 +27,13 @@ project:
 paths:
   design: design/
   sprint: SPRINT.md
+  # The business requirements. A path, or a URL when they live elsewhere. Input only.
+  brd: requirements/brd.md
   # Where the functional spec lives. A path, or a URL when it lives in an external system.
+  # A spec written by `functional-spec` is requirements/spec.md with a stories/ directory.
   spec: https://wiki.example.com/spaces/ACME/spec
+  # The MVP definition written by `mvp-scope`; the scope input for `sprint-plan`.
+  mvp: requirements/mvp.md
   # Directories treated as product code by the docs-in-same-PR hook.
   code:
     - src/
@@ -76,7 +81,9 @@ policy:
 | `project.owner` | — | The design owner named in `CODEOWNERS` and in triage rulings. |
 | `paths.design` | `design/` | The canon directory. |
 | `paths.sprint` | `SPRINT.md` | The sprint plan. |
-| `paths.spec` | — | Path or URL to the functional spec. |
+| `paths.brd` | — | Path or URL to the BRD. Read by `functional-spec`; engineering never edits an approved one. |
+| `paths.spec` | — | Path or URL to the functional spec. One home — a URL *or* a repository path, never both. |
+| `paths.mvp` | `requirements/mvp.md` | The MVP definition. `sprint-plan` plans only the stories it lists. |
 | `paths.code` | detected | Directories the docs-in-same-PR hook watches. |
 | `paths.exclude` | `[]` | Directories that hook ignores. |
 | `tracks` | detected | Instantiated tracks. `sprint-ticket` refuses an unlisted track. |
