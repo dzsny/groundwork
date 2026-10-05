@@ -4,6 +4,28 @@ All notable changes to this plugin are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] — Unreleased
+
+### Added
+
+- **The front half of the process, so the workflow runs from idea to MVP.** Five new skills:
+  `start` (detects the project's real stage and runs the next one), `interview` (the questioning
+  engine), `brd`, `functional-spec` and `mvp-scope`.
+- `brd` **Import** mode for a BRD written elsewhere — another session, tool or document — which
+  is normalized to stable ids and linted without changing its meaning.
+- `functional-spec` **Complete** mode, which uses a `spec-gap-check` report as its work list.
+- Templates: `templates/requirements/brd.md`, `functional-spec.md` and `mvp.md`.
+- `/groundwork:fs` command; `paths.brd` and `paths.mvp` config keys.
+- Session-context hook reports the BRD and MVP scope when configured.
+
+### Changed
+
+- `spec-gap-check` honors BRD priorities (an uncovered MVP requirement blocks, a Later one does
+  not) and reads a spec laid out as `spec.md` plus `stories/`.
+- `sprint-plan` plans only the stories listed in `mvp.md` when it exists.
+- The workflow doc gains *Phase −1 — Idea to spec*. The spec may now live in the repository
+  (`requirements/`) when no external system owns it; one home either way, never both.
+
 ## [0.1.0] — 2026-09-20
 
 First public release.
