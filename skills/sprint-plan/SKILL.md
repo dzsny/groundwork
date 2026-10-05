@@ -23,6 +23,10 @@ corrected — the file sits behind branch protection and review; a tracker field
 Read the design package first. A sprint plan authored without reading `design/` produces
 plausible tickets that do not add up to the system.
 
+If `paths.mvp` exists (written by `mvp-scope`), it is the scope: plan tickets for the stories
+listed under *In the MVP*, build the **walking skeleton** first, and give the deferred stories
+no tickets. Pulling a deferred story in later is a change request, not a ticket.
+
 ### Choosing tracks
 
 Walk the taxonomy as a **menu** and instantiate only what applies. The full menu with
